@@ -1,0 +1,13 @@
+{% extends "Coffee_Co/base.html" %}
+
+{% block content %}
+<p><a href="{% url 'Coffee_Co:coffeeType' coffeeType.id %}">{{ coffeeType }}</a></p>
+<p>Edit Recipe:</p>
+
+<form action="{% url 'Coffee_Co:editCoffeeRecipe' recipe.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="Submit">Save Changes</button>
+</form>
+
+{% endblock %}

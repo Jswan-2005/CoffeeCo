@@ -1,0 +1,8 @@
+{% extends "Coffee_Co/base.html" %}
+{% block page_header %}
+  <div class="bg-dark text-white text-center py-5">
+    <h1 class="display-4">CoffeeCo helps you keep track of your coffee recipes!</h1>
+    <p class="lead">Create coffee recipes for various types of coffee and rate each recipe on a scale from 1 to 5.</p>
+    <a class="btn btn-lg btn-outline-light" href="{% url 'users:register' %}" role="button">Register &raquo;</a>
+  </div>
+{% endblock page_header %}

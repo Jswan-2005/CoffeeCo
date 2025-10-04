@@ -1,0 +1,19 @@
+{% extends "Coffee_Co/base.html" %}
+
+
+{% block content %}
+<p>Coffee Types</p>
+
+<ul>
+    {% for coffeeType in coffeeTypes %}
+    <li>
+        <a href = "{% url 'Coffee_Co:coffeeType' coffeeType.id %}">{{coffeeType}}</a>
+    </li>
+    {% empty %}
+    <li>No coffee types have been added yet.</li>
+    {% endfor %}
+</ul>
+<a href = "{% url 'Coffee_Co:newCoffeeType' %}">Add a new coffee type</a>
+
+
+{% endblock content %}

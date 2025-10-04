@@ -1,0 +1,10 @@
+{% extends "Coffee_Co/base.html" %}
+
+{% block content %}
+<p>Add a new coffee type:</p>
+<form action="{% url 'Coffee_Co:newCoffeeType' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add coffee type</button>
+</form>
+{% endblock content %}

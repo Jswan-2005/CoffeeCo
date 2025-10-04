@@ -1,0 +1,23 @@
+{% extends "Coffee_Co/base.html" %}
+
+{% block content %}
+<p>Coffee Type: {{coffeeType}}</p>
+<p>
+    <a href="{% url 'Coffee_Co:newCoffeeRecipe' coffeeType.id %}">Add a new recipe</a>
+</p>
+<ul>
+    {% for entry in entries %}
+    <li>
+        <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+        <p>{{entry.text | linebreaks}}</p>
+        <p>
+           <a href="{% url 'Coffee_Co:editCoffeeRecipe' entry.id %}">Edit Recipe</a>
+
+        </p>
+    </li>
+    {% empty %}
+    <li>There are no recipes for this coffee type yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

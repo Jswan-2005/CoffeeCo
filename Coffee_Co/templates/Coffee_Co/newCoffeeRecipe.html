@@ -1,0 +1,18 @@
+{% extends "Coffee_Co/base.html" %}
+
+{% block content %}
+  <form action="{% url 'Coffee_Co:newCoffeeRecipe' coffeeType.id %}" method="post">
+    {% csrf_token %}
+
+    <p>{{ form.text.label_tag }}<br>
+       {{ form.text }}</p>
+
+    <p>{{ form.rating.label_tag }}<br>
+       {% for radio in form.rating %}
+         {{ radio.tag }} {{ radio.choice_label }}
+       {% endfor %}
+    </p>
+
+    <button name="submit">Add Recipe</button>
+  </form>
+{% endblock %}
